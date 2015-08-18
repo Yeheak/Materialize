@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>687196F0-2B59-4069-85AE-D97FFF94A5BC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MaterialKit</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>14B451B2BA97F33A31F9E81F3A5F12D241CA2DDB</key>
+		<string>https://github.com/adamdahan/MaterialKit.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MaterialKit.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>14B451B2BA97F33A31F9E81F3A5F12D241CA2DDB</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/adamdahan/MaterialKit.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>14B451B2BA97F33A31F9E81F3A5F12D241CA2DDB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>14B451B2BA97F33A31F9E81F3A5F12D241CA2DDB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MaterialKit</string>
+		</dict>
+	</array>
+</dict>
+</plist>
