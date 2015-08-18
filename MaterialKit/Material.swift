@@ -21,6 +21,8 @@ extension UIButton {
     }
 }
 
+// This extension would not actually be here.
+
 extension UIViewController {
     func pinBottomRight(customView: UIView) {
         self.view.addSubview(customView)

@@ -13,7 +13,7 @@
 		9A60D87C1B83F1DB00DB1A49 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A60D87B1B83F1DB00DB1A49 /* Images.xcassets */; };
 		9A60D87F1B83F1DB00DB1A49 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A60D87D1B83F1DB00DB1A49 /* LaunchScreen.xib */; };
 		9A60D88B1B83F1DB00DB1A49 /* MaterialKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A60D88A1B83F1DB00DB1A49 /* MaterialKitTests.swift */; };
-		9A60D8961B83F31100DB1A49 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A60D8951B83F31100DB1A49 /* Button.swift */; };
+		9A60D8961B83F31100DB1A49 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A60D8951B83F31100DB1A49 /* Material.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 		9A60D8841B83F1DB00DB1A49 /* MaterialKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaterialKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A60D8891B83F1DB00DB1A49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A60D88A1B83F1DB00DB1A49 /* MaterialKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialKitTests.swift; sourceTree = "<group>"; };
-		9A60D8951B83F31100DB1A49 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		9A60D8951B83F31100DB1A49 /* Material.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,7 @@
 		9A60D8941B83F2DD00DB1A49 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				9A60D8951B83F31100DB1A49 /* Button.swift */,
+				9A60D8951B83F31100DB1A49 /* Material.swift */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A60D8771B83F1DB00DB1A49 /* ViewController.swift in Sources */,
-				9A60D8961B83F31100DB1A49 /* Button.swift in Sources */,
+				9A60D8961B83F31100DB1A49 /* Material.swift in Sources */,
 				9A60D8751B83F1DB00DB1A49 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +421,7 @@
 				9A60D8901B83F1DB00DB1A49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9A60D8911B83F1DB00DB1A49 /* Build configuration list for PBXNativeTarget "MaterialKitTests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +430,7 @@
 				9A60D8931B83F1DB00DB1A49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
