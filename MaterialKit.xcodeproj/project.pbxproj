@@ -13,9 +13,9 @@
 		9A60D87C1B83F1DB00DB1A49 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A60D87B1B83F1DB00DB1A49 /* Images.xcassets */; };
 		9A60D87F1B83F1DB00DB1A49 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A60D87D1B83F1DB00DB1A49 /* LaunchScreen.xib */; };
 		9A60D88B1B83F1DB00DB1A49 /* MaterialKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A60D88A1B83F1DB00DB1A49 /* MaterialKitTests.swift */; };
-		9A60D8961B83F31100DB1A49 /* UIViewController+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A60D8951B83F31100DB1A49 /* UIViewController+AutoLayout.swift */; };
-		9A60D8981B83FCD900DB1A49 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A60D8971B83FCD900DB1A49 /* Button.swift */; };
-		9A60D89A1B8400FA00DB1A49 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A60D8991B8400FA00DB1A49 /* Material.swift */; };
+		9A60D8961B83F31100DB1A49 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A60D8951B83F31100DB1A49 /* UIViewController.swift */; };
+		9A60D8981B83FCD900DB1A49 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A60D8971B83FCD900DB1A49 /* FloatingButton.swift */; };
+		9AF51C4A1B85270200F416EA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF51C491B85270200F416EA /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +39,9 @@
 		9A60D8841B83F1DB00DB1A49 /* MaterialKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaterialKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A60D8891B83F1DB00DB1A49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A60D88A1B83F1DB00DB1A49 /* MaterialKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialKitTests.swift; sourceTree = "<group>"; };
-		9A60D8951B83F31100DB1A49 /* UIViewController+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+AutoLayout.swift"; sourceTree = "<group>"; };
-		9A60D8971B83FCD900DB1A49 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		9A60D8991B8400FA00DB1A49 /* Material.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
+		9A60D8951B83F31100DB1A49 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		9A60D8971B83FCD900DB1A49 /* FloatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		9AF51C491B85270200F416EA /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,13 +83,14 @@
 		9A60D8711B83F1DB00DB1A49 /* MaterialKit */ = {
 			isa = PBXGroup;
 			children = (
-				9A60D8941B83F2DD00DB1A49 /* Buttons */,
 				9A60D8741B83F1DB00DB1A49 /* AppDelegate.swift */,
-				9A60D8761B83F1DB00DB1A49 /* ViewController.swift */,
-				9A60D8781B83F1DB00DB1A49 /* Main.storyboard */,
-				9A60D87B1B83F1DB00DB1A49 /* Images.xcassets */,
-				9A60D87D1B83F1DB00DB1A49 /* LaunchScreen.xib */,
+				9AF51C481B84F67400F416EA /* Library */,
+				9AF51C461B84F62D00F416EA /* Views */,
+				9AF51C451B84F62700F416EA /* Storyboards */,
+				9AF51C441B84F61A00F416EA /* Controllers */,
+				9AF51C431B84F60E00F416EA /* Extensions */,
 				9A60D8721B83F1DB00DB1A49 /* Supporting Files */,
+				9A60D87B1B83F1DB00DB1A49 /* Images.xcassets */,
 			);
 			path = MaterialKit;
 			sourceTree = "<group>";
@@ -122,11 +123,58 @@
 		9A60D8941B83F2DD00DB1A49 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				9A60D8951B83F31100DB1A49 /* UIViewController+AutoLayout.swift */,
-				9A60D8971B83FCD900DB1A49 /* Button.swift */,
-				9A60D8991B8400FA00DB1A49 /* Material.swift */,
+				9A60D8971B83FCD900DB1A49 /* FloatingButton.swift */,
 			);
 			name = Buttons;
+			sourceTree = "<group>";
+		};
+		9AF51C431B84F60E00F416EA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9A60D8951B83F31100DB1A49 /* UIViewController.swift */,
+				9AF51C491B85270200F416EA /* UIView.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		9AF51C441B84F61A00F416EA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9A60D8761B83F1DB00DB1A49 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9AF51C451B84F62700F416EA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9A60D8781B83F1DB00DB1A49 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		9AF51C461B84F62D00F416EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9A60D87D1B83F1DB00DB1A49 /* LaunchScreen.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9AF51C471B84F66C00F416EA /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Colors;
+			sourceTree = "<group>";
+		};
+		9AF51C481B84F67400F416EA /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				9A60D8941B83F2DD00DB1A49 /* Buttons */,
+				9AF51C471B84F66C00F416EA /* Colors */,
+			);
+			name = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,11 +277,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A60D89A1B8400FA00DB1A49 /* Material.swift in Sources */,
+				9AF51C4A1B85270200F416EA /* UIView.swift in Sources */,
 				9A60D8771B83F1DB00DB1A49 /* ViewController.swift in Sources */,
-				9A60D8961B83F31100DB1A49 /* UIViewController+AutoLayout.swift in Sources */,
+				9A60D8961B83F31100DB1A49 /* UIViewController.swift in Sources */,
 				9A60D8751B83F1DB00DB1A49 /* AppDelegate.swift in Sources */,
-				9A60D8981B83FCD900DB1A49 /* Button.swift in Sources */,
+				9A60D8981B83FCD900DB1A49 /* FloatingButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
