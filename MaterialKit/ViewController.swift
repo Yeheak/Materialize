@@ -12,8 +12,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var plusButton = UIButton.plusButton()
-        self.pinBottomRight(plusButton)
+        //var plusButton = UIButton.plusButton()
+        //self.pinBottomRight(plusButton)
+        
+        var subPlusButton = Button()
+        self.pinBottomRight(subPlusButton)
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  Button.swift
+//  Material.swift
 //  MaterialKit
 //
 //  Created by Adam Dahan on 2015-08-18.
@@ -18,18 +18,5 @@ extension UIButton {
         plusButton.layer.cornerRadius = 25.0
         plusButton.titleEdgeInsets = UIEdgeInsetsMake(-5.0, 0, 0, 0)
         return plusButton
-    }
-}
-
-// This extension would not actually be here.
-
-extension UIViewController {
-    func pinBottomRight(customView: UIView) {
-        self.view.addSubview(customView)
-        var views = ["view" : customView]
-        var viewBindingsDict: NSMutableDictionary = NSMutableDictionary()
-        viewBindingsDict.setValue(customView, forKey: "customView")
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[customView(50)]-(10)-|", options: nil, metrics: nil, views: viewBindingsDict as [NSObject : AnyObject]))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[customView(50)]-(10)-|", options: nil, metrics: nil, views: viewBindingsDict as [NSObject : AnyObject]))
     }
 }
