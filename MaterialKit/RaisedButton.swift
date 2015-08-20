@@ -86,7 +86,7 @@ class RaisedButton : UIButton {
         backgroundColorView.addSubview(pulseView!)
         UIView.animateWithDuration(0.3, animations: {
             self.pulseView!.transform = CGAffineTransformMakeScale(10, 10)
-            self.transform = CGAffineTransformMakeScale(1.1, 1.1)
+            self.transform = CGAffineTransformMakeScale(1.05, 1.1)
         }, completion: nil)
     }
     

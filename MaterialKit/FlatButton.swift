@@ -86,7 +86,7 @@ class FlatButton : UIButton {
         textColor = self.titleLabel?.textColor
         UIView.animateWithDuration(0.3, animations: {
             self.pulseView!.transform = CGAffineTransformMakeScale(10, 10)
-            self.transform = CGAffineTransformMakeScale(1.1, 1.1)
+            self.transform = CGAffineTransformMakeScale(1.05, 1.1)
             self.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             }, completion: nil)
     }

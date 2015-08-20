@@ -69,7 +69,7 @@ class ViewController: UIViewController {
     }
     
     func constrainSubviews() {
-        let metrics = ["buttonWidth" : self.view.bounds.size.width - 40, "buttonHeight" : 40]
+        let metrics = ["buttonWidth" : self.view.bounds.size.width - 40, "buttonHeight" : 50]
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonTitle(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonFlatTitle(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonImage(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
