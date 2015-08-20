@@ -10,8 +10,12 @@ import UIKit
 
 class FloatingButton : UIButton {
     
-    var colorView: UIView?
-    var pulseView: UIView?
+    var color: UIColor?
+    
+    private var vLine: UIView?
+    private var hLine: UIView?
+    private var colorView: UIView?
+    private var pulseView: UIView?
     
     override func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
@@ -24,9 +28,19 @@ class FloatingButton : UIButton {
         colorView = UIView()
         colorView!.frame = self.bounds
         colorView!.layer.cornerRadius = boundsW() / 2.0
-        colorView!.backgroundColor = UIColor.redColor()
+        colorView!.backgroundColor = color
         colorView!.layer.masksToBounds = true
         self.addSubview(colorView!)
+        
+        vLine = UIView(frame: CGRectMake(0, 0, 2.0, CGRectGetHeight(colorView!.frame) / 3.0))
+        vLine!.backgroundColor = UIColor.whiteColor()
+        vLine!.center = colorView!.center
+        colorView!.addSubview(vLine!)
+        
+        hLine = UIView(frame: CGRectMake(0, 0, CGRectGetWidth(colorView!.frame) / 3.0, 2.0))
+        hLine!.backgroundColor = UIColor.whiteColor()
+        hLine!.center = colorView!.center
+        colorView!.addSubview(hLine!)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -42,6 +56,7 @@ class FloatingButton : UIButton {
     }
     
     func initialize() {
+        color = UIColor.redColor()
         setTranslatesAutoresizingMaskIntoConstraints(false)
     }
     
