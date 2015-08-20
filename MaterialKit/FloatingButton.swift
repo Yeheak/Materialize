@@ -92,7 +92,7 @@ class FloatingButton : UIButton {
     }
     
     func shrink() {
-        UIView.animateWithDuration(0.2, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: nil, animations: {
+        UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: nil, animations: {
             self.transform = CGAffineTransformIdentity
         }, completion: nil)
     }
