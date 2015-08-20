@@ -11,7 +11,9 @@ import UIKit
 class FloatingButton : UIButton {
     
     var lineWidth: CGFloat = 2.0
+    
     var color: UIColor?
+    var pulseColor: UIColor?
     
     private var vLine: UIView?
     private var hLine: UIView?
@@ -38,6 +40,7 @@ class FloatingButton : UIButton {
     
     func initialize() {
         color = UIColor.redColor()
+        pulseColor = UIColor.whiteColor()
         setTranslatesAutoresizingMaskIntoConstraints(false)
     }
     
@@ -106,7 +109,7 @@ class FloatingButton : UIButton {
         pulseView!.frame = CGRectMake(0, 0, boundsW(), boundsH())
         pulseView!.layer.cornerRadius = boundsW() / 2.0
         pulseView!.center = touchLocation
-        pulseView!.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
+        pulseView!.backgroundColor = pulseColor!.colorWithAlphaComponent(0.5)
         backgroundColorView!.addSubview(pulseView!)
         UIView.animateWithDuration(0.3, animations: {
            self.pulseView!.transform = CGAffineTransformMakeScale(3, 3)

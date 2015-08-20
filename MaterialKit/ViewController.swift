@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     var floatingButton: FloatingButton = FloatingButton()
     var raisedButtonWithTitle: RaisedButton = RaisedButton()
+    var raisedButtonFlatWithTitle: RaisedButton = RaisedButton()
     var raisedButtonWithImage: RaisedButton = RaisedButton()
     var raisedButtonWithTitleImage: RaisedButton = RaisedButton()
     
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
     
     func setupRaisedButtons() {
         setupRaisedButtonWithTitle()
+        setupRaisedButtonFlatWithTitle()
         setupRaisedButtonWithImage()
         setupRaisedButtonWithTitleImage()
     }
@@ -35,6 +37,15 @@ class ViewController: UIViewController {
         raisedButtonWithTitle.color = UIColor.purpleColor()
         self.view.addSubview(raisedButtonWithTitle)
         views.setObject(raisedButtonWithTitle, forKey: "buttonTitle")
+    }
+    
+    func setupRaisedButtonFlatWithTitle() {
+        raisedButtonFlatWithTitle.setTitle("Button", forState: .Normal)
+        raisedButtonFlatWithTitle.setTitleColor(UIColor.purpleColor(), forState: .Normal)
+        raisedButtonFlatWithTitle.color = UIColor.clearColor()
+        raisedButtonFlatWithTitle.pulseColor = UIColor.purpleColor()
+        self.view.addSubview(raisedButtonFlatWithTitle)
+        views.setObject(raisedButtonFlatWithTitle, forKey: "buttonFlatTitle")
     }
     
     func setupRaisedButtonWithImage() {
@@ -59,11 +70,12 @@ class ViewController: UIViewController {
     }
     
     func constrainSubviews() {
-        let metrics = ["buttonWidth" : 140, "buttonHeight" : 40]
+        let metrics = ["buttonWidth" : 150, "buttonHeight" : 40]
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonTitle(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonFlatTitle(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonImage(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonTitleImage(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(60)-[buttonTitle(buttonHeight)]-(20)-[buttonImage(buttonHeight)]-(20)-[buttonTitleImage(buttonHeight)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(60)-[buttonTitle(buttonHeight)]-(20)-[buttonImage(buttonHeight)]-(20)-[buttonTitleImage(buttonHeight)]-(20)-[buttonFlatTitle(buttonHeight)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
     }
 }
 
