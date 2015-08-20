@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     var floatingButton: FloatingButton = FloatingButton()
     var raisedButtonWithTitle: RaisedButton = RaisedButton()
-    var raisedButtonFlatWithTitle: RaisedButton = RaisedButton()
+    var flatButtonWithTitle: FlatButton = FlatButton()
     var raisedButtonWithImage: RaisedButton = RaisedButton()
     var raisedButtonWithTitleImage: RaisedButton = RaisedButton()
     
@@ -40,12 +40,11 @@ class ViewController: UIViewController {
     }
     
     func setupRaisedButtonFlatWithTitle() {
-        raisedButtonFlatWithTitle.setTitle("Button", forState: .Normal)
-        raisedButtonFlatWithTitle.setTitleColor(UIColor.purpleColor(), forState: .Normal)
-        raisedButtonFlatWithTitle.color = UIColor.clearColor()
-        raisedButtonFlatWithTitle.pulseColor = UIColor.purpleColor()
-        self.view.addSubview(raisedButtonFlatWithTitle)
-        views.setObject(raisedButtonFlatWithTitle, forKey: "buttonFlatTitle")
+        flatButtonWithTitle.setTitle("Button", forState: .Normal)
+        flatButtonWithTitle.setTitleColor(UIColor.purpleColor(), forState: .Normal)
+        flatButtonWithTitle.pulseColor = UIColor.purpleColor()
+        self.view.addSubview(flatButtonWithTitle)
+        views.setObject(flatButtonWithTitle, forKey: "buttonFlatTitle")
     }
     
     func setupRaisedButtonWithImage() {

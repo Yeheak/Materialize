@@ -17,6 +17,7 @@
 		9A60D8981B83FCD900DB1A49 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A60D8971B83FCD900DB1A49 /* FloatingButton.swift */; };
 		9AF51C4A1B85270200F416EA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF51C491B85270200F416EA /* UIView.swift */; };
 		9AF51C4E1B8565C700F416EA /* RaisedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF51C4D1B8565C700F416EA /* RaisedButton.swift */; };
+		9AF51C501B85A20300F416EA /* FlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF51C4F1B85A20300F416EA /* FlatButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		9A60D8971B83FCD900DB1A49 /* FloatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		9AF51C491B85270200F416EA /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		9AF51C4D1B8565C700F416EA /* RaisedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaisedButton.swift; sourceTree = "<group>"; };
+		9AF51C4F1B85A20300F416EA /* FlatButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			children = (
 				9A60D8971B83FCD900DB1A49 /* FloatingButton.swift */,
 				9AF51C4D1B8565C700F416EA /* RaisedButton.swift */,
+				9AF51C4F1B85A20300F416EA /* FlatButton.swift */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				9A60D8771B83F1DB00DB1A49 /* ViewController.swift in Sources */,
 				9A60D8961B83F31100DB1A49 /* UIViewController.swift in Sources */,
 				9A60D8751B83F1DB00DB1A49 /* AppDelegate.swift in Sources */,
+				9AF51C501B85A20300F416EA /* FlatButton.swift in Sources */,
 				9A60D8981B83FCD900DB1A49 /* FloatingButton.swift in Sources */,
 				9AF51C4E1B8565C700F416EA /* RaisedButton.swift in Sources */,
 			);
