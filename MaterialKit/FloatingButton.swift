@@ -86,7 +86,7 @@ class FloatingButton : UIButton {
         pulseView!.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         colorView!.addSubview(pulseView!)
         UIView.animateWithDuration(0.3, animations: {
-           self.pulseView!.transform = CGAffineTransformMakeScale(2, 2)
+           self.pulseView!.transform = CGAffineTransformMakeScale(3, 3)
            self.transform = CGAffineTransformMakeScale(1.1, 1.1)
         }, completion: nil)
     }
