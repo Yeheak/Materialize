@@ -12,27 +12,14 @@ class RaisedButton : UIButton {
     
     var color: UIColor?
     
-    private var vLine: UIView?
-    private var hLine: UIView?
-    private var colorView: UIView?
+    private var vLine: UIView = UIView()
+    private var hLine: UIView = UIView()
+    private var backgroundColorView: UIView = UIView()
     private var pulseView: UIView?
     
     override func drawRect(rect: CGRect) {
-        let context = UIGraphicsGetCurrentContext()
-        CGContextSaveGState(context);
-        CGContextSetFillColorWithColor(context, UIColor.clearColor().CGColor)
-        CGContextFillPath(context)
-        CGContextRestoreGState(context);
-        
-        // We need this view so we can use the masksToBounds 
-        // so the pulse doesn't animate off the button
-        
-        colorView = UIView()
-        colorView!.frame = self.bounds
-        colorView!.layer.cornerRadius = 3.0
-        colorView!.backgroundColor = color
-        colorView!.layer.masksToBounds = true
-        self.insertSubview(colorView!, atIndex: 0)
+        setupContext(rect)
+        setupBackgroundColorView()
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -50,6 +37,24 @@ class RaisedButton : UIButton {
     func initialize() {
         color = UIColor.redColor()
         setTranslatesAutoresizingMaskIntoConstraints(false)
+    }
+    
+    func setupContext(rect: CGRect) {
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSaveGState(context);
+        CGContextSetFillColorWithColor(context, UIColor.clearColor().CGColor)
+        CGContextFillPath(context)
+        CGContextRestoreGState(context);
+    }
+    
+    // We need this view so we can use the masksToBounds
+    // so the pulse doesn't animate off the button
+    func setupBackgroundColorView() {
+        backgroundColorView.frame = self.bounds
+        backgroundColorView.layer.cornerRadius = 3.0
+        backgroundColorView.backgroundColor = color
+        backgroundColorView.layer.masksToBounds = true
+        self.insertSubview(backgroundColorView, atIndex: 0)
     }
     
     func applyShadow() {
@@ -72,11 +77,11 @@ class RaisedButton : UIButton {
         let touch = touches.allObjects.last as! UITouch
         let touchLocation = touch.locationInView(self)
         pulseView = UIView()
-        pulseView!.frame = CGRectMake(0, 0, colorView!.bounds.size.height, colorView!.bounds.size.height)
+        pulseView!.frame = CGRectMake(0, 0, self.bounds.size.height, self.bounds.size.height)
         pulseView!.layer.cornerRadius = boundsH() / 2.0
         pulseView!.center = touchLocation
         pulseView!.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
-        colorView!.addSubview(pulseView!)
+        backgroundColorView.addSubview(pulseView!)
         UIView.animateWithDuration(0.3, animations: {
             self.pulseView!.transform = CGAffineTransformMakeScale(10, 10)
             self.transform = CGAffineTransformMakeScale(1.1, 1.1)
@@ -91,10 +96,10 @@ class RaisedButton : UIButton {
     
     func removePulse() {
         UIView.animateWithDuration(0.3, animations: { () -> Void in
-            self.pulseView?.alpha = 0.0
+            self.pulseView!.alpha = 0.0
             }) { (finished) -> Void in
-                self.pulseView?.removeFromSuperview()
-                self.pulseView = nil
+            self.pulseView!.removeFromSuperview()
+            self.pulseView = nil
         }
     }
 }

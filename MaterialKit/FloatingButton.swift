@@ -10,44 +10,18 @@ import UIKit
 
 class FloatingButton : UIButton {
     
+    var lineWidth: CGFloat = 2.0
     var color: UIColor?
     
     private var vLine: UIView?
     private var hLine: UIView?
-    private var colorView: UIView?
+    private var backgroundColorView: UIView?
     private var pulseView: UIView?
     
     override func drawRect(rect: CGRect) {
-        let context = UIGraphicsGetCurrentContext()
-        CGContextSaveGState(context);
-        CGContextAddEllipseInRect(context, rect)
-        CGContextSetFillColorWithColor(context, UIColor.clearColor().CGColor)
-        CGContextFillPath(context)
-        CGContextRestoreGState(context);
-        
-        // We need this view so we can use the masksToBounds
-        // so the pulse doesn't animate off the button
-        
-        colorView = UIView()
-        colorView!.frame = self.bounds
-        colorView!.layer.cornerRadius = boundsW() / 2.0
-        colorView!.backgroundColor = color
-        colorView!.layer.masksToBounds = true
-        self.insertSubview(colorView!, atIndex: 0)
-        
-        // I make the + with two views because
-        // The label is not actually vertically and horizontally aligned
-        // Quick hack instead of subclassing UILabel and override drawTextInRect
-        
-        vLine = UIView(frame: CGRectMake(0, 0, 2.0, CGRectGetHeight(colorView!.frame) / 3.0))
-        vLine!.backgroundColor = UIColor.whiteColor()
-        vLine!.center = colorView!.center
-        colorView!.addSubview(vLine!)
-        
-        hLine = UIView(frame: CGRectMake(0, 0, CGRectGetWidth(colorView!.frame) / 3.0, 2.0))
-        hLine!.backgroundColor = UIColor.whiteColor()
-        hLine!.center = colorView!.center
-        colorView!.addSubview(hLine!)
+        setupContext(rect)
+        setupBackgroundColorView()
+        setupPlus()
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -65,6 +39,48 @@ class FloatingButton : UIButton {
     func initialize() {
         color = UIColor.redColor()
         setTranslatesAutoresizingMaskIntoConstraints(false)
+    }
+    
+    func setupContext(rect: CGRect) {
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSaveGState(context);
+        CGContextAddEllipseInRect(context, rect)
+        CGContextSetFillColorWithColor(context, UIColor.clearColor().CGColor)
+        CGContextFillPath(context)
+        CGContextRestoreGState(context);
+    }
+    
+    // We need this view so we can use the masksToBounds
+    // so the pulse doesn't animate off the button
+    func setupBackgroundColorView() {
+        backgroundColorView = UIView()
+        backgroundColorView!.frame = self.bounds
+        backgroundColorView!.layer.cornerRadius = boundsW() / 2.0
+        backgroundColorView!.backgroundColor = color
+        backgroundColorView!.layer.masksToBounds = true
+        self.insertSubview(backgroundColorView!, atIndex: 0)
+    }
+    
+    // I make the + with two views because
+    // The label is not actually vertically and horizontally aligned
+    // Quick hack instead of subclassing UILabel and override drawTextInRect
+    func setupPlus() {
+        setupVerticalLine()
+        setupHorizontalLine()
+    }
+    
+    func setupVerticalLine() {
+        vLine = UIView(frame: CGRectMake(0, 0, lineWidth, CGRectGetHeight(backgroundColorView!.frame) / 3.0))
+        vLine!.backgroundColor = UIColor.whiteColor()
+        vLine!.center = backgroundColorView!.center
+        backgroundColorView!.addSubview(vLine!)
+    }
+    
+    func setupHorizontalLine() {
+        hLine = UIView(frame: CGRectMake(0, 0, CGRectGetWidth(backgroundColorView!.frame) / 3.0, lineWidth))
+        hLine!.backgroundColor = UIColor.whiteColor()
+        hLine!.center = backgroundColorView!.center
+        backgroundColorView!.addSubview(hLine!)
     }
     
     func applyShadow() {
@@ -87,11 +103,11 @@ class FloatingButton : UIButton {
         let touch = touches.allObjects.last as! UITouch
         let touchLocation = touch.locationInView(self)
         pulseView = UIView()
-        pulseView!.frame = CGRectMake(0, 0, colorView!.bounds.size.width, colorView!.bounds.size.height)
+        pulseView!.frame = CGRectMake(0, 0, boundsW(), boundsH())
         pulseView!.layer.cornerRadius = boundsW() / 2.0
         pulseView!.center = touchLocation
         pulseView!.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
-        colorView!.addSubview(pulseView!)
+        backgroundColorView!.addSubview(pulseView!)
         UIView.animateWithDuration(0.3, animations: {
            self.pulseView!.transform = CGAffineTransformMakeScale(3, 3)
            self.transform = CGAffineTransformMakeScale(1.1, 1.1)

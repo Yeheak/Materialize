@@ -9,33 +9,61 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var views: NSMutableDictionary = NSMutableDictionary()
+    
+    var floatingButton: FloatingButton = FloatingButton()
+    var raisedButtonWithTitle: RaisedButton = RaisedButton()
+    var raisedButtonWithImage: RaisedButton = RaisedButton()
+    var raisedButtonWithTitleImage: RaisedButton = RaisedButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Rounded Button
-        var floatingButton = FloatingButton()
-        self.bottomRight(floatingButton, w: 100, h: 100, b: 20, br: 20)
-        
-        // Raised Button with Title
-        var raisedButton = RaisedButton()
-        raisedButton.setTitle("Button", forState: .Normal)
-        raisedButton.color = UIColor.purpleColor()
-        self.bottomLeft(raisedButton, w: 140, h: 40, b: 20, bl: 20)
-        
-        // Raised Button with Image
-        var raisedTrButton = RaisedButton()
-        raisedTrButton.color = UIColor.purpleColor()
-        raisedTrButton.setImage(UIImage(named: "clouds"), forState: .Normal)
-        self.topRight(raisedTrButton, w: 140, h: 40, t: 40, tr: 20)
-        
-        // Raised Button with Title & Image
-        var raisedTLButton = RaisedButton()
-        raisedTLButton.color = UIColor.purpleColor()
-        raisedTLButton.setImage(UIImage(named: "clouds"), forState: .Normal)
-        raisedTLButton.setTitle("Button", forState: .Normal)
-        raisedTLButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10.0, 0, 0)
-        raisedTLButton.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0)
-        self.topLeft(raisedTLButton, w: 140, h: 40, t: 40, tl: 20)
+        setupRaisedButtons()
+        setupFloatingButton()
+        constrainSubviews()
+    }
+    
+    func setupRaisedButtons() {
+        setupRaisedButtonWithTitle()
+        setupRaisedButtonWithImage()
+        setupRaisedButtonWithTitleImage()
+    }
+    
+    func setupRaisedButtonWithTitle() {
+        raisedButtonWithTitle.setTitle("Button", forState: .Normal)
+        raisedButtonWithTitle.color = UIColor.purpleColor()
+        self.view.addSubview(raisedButtonWithTitle)
+        views.setObject(raisedButtonWithTitle, forKey: "buttonTitle")
+    }
+    
+    func setupRaisedButtonWithImage() {
+        raisedButtonWithImage.color = UIColor.purpleColor()
+        raisedButtonWithImage.setImage(UIImage(named: "clouds"), forState: .Normal)
+        self.view.addSubview(raisedButtonWithImage)
+        views.setObject(raisedButtonWithImage, forKey: "buttonImage")
+    }
+    
+    func setupRaisedButtonWithTitleImage() {
+        raisedButtonWithTitleImage.color = UIColor.purpleColor()
+        raisedButtonWithTitleImage.setImage(UIImage(named: "clouds"), forState: .Normal)
+        raisedButtonWithTitleImage.setTitle("Button", forState: .Normal)
+        raisedButtonWithTitleImage.titleEdgeInsets = UIEdgeInsetsMake(0, 10.0, 0, 0)
+        raisedButtonWithTitleImage.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0)
+        self.view.addSubview(raisedButtonWithTitleImage)
+        views.setObject(raisedButtonWithTitleImage, forKey: "buttonTitleImage")
+    }
+    
+    func setupFloatingButton() {
+        self.bottomRight(floatingButton, w: 60, h: 60, b: 20, br: 20)
+    }
+    
+    func constrainSubviews() {
+        let metrics = ["buttonWidth" : 140, "buttonHeight" : 40]
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonTitle(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonImage(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonTitleImage(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(60)-[buttonTitle(buttonHeight)]-(20)-[buttonImage(buttonHeight)]-(20)-[buttonTitleImage(buttonHeight)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
     }
 }
 
