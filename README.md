@@ -1,2 +1,3 @@
 # MaterialKit
-UIKit Material Design library written in Swift
+
+Examples of MaterialKit in practice. 
