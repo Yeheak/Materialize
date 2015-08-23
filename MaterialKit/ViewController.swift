@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MaterialKit
 
 class ViewController: UIViewController {
     
@@ -17,7 +18,7 @@ class ViewController: UIViewController {
     var basicCardTwo: BasicCard = BasicCard()
     
     // Buttons
-    var floatingButton: FloatingButton = FloatingButton()
+    var floatingButton: FabButton = FabButton()
     var raisedButtonWithTitle: RaisedButton = RaisedButton()
     var flatButtonWithTitle: FlatButton = FlatButton()
     var raisedButtonWithImage: RaisedButton = RaisedButton()
@@ -50,7 +51,9 @@ class ViewController: UIViewController {
         self.view.addSubview(basicCardTwo)
         basicCardTwo.backgroundColor = UIColor.whiteColor()
         basicCardTwo.cancelButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+        basicCardTwo.cancelButton.layer.shadowColor = UIColor.clearColor().CGColor
         basicCardTwo.otherButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+        basicCard.otherButton.layer.shadowColor = UIColor.clearColor().CGColor
         basicCardTwo.cancelButton.pulseColor = UIColor.darkGrayColor()
         basicCardTwo.otherButton.pulseColor = UIColor.darkGrayColor()
         basicCardTwo.pulseColor = UIColor.lightGrayColor()
@@ -100,7 +103,7 @@ class ViewController: UIViewController {
     }
     
     func setupFloatingButton() {
-        self.bottomRight(floatingButton, w: 60, h: 60, b: 20, br: 20)
+        // add constraints
     }
     
     func constrainButtons() {

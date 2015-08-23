@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9A60D86E1B83F1DB00DB1A49"
-               BuildableName = "MaterialKit.app"
-               BlueprintName = "MaterialKit"
-               ReferencedContainer = "container:MaterialKit.xcodeproj">
+               BuildableName = "MaterialKitApp.app"
+               BlueprintName = "MaterialKitApp"
+               ReferencedContainer = "container:MaterialKitApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9A60D8831B83F1DB00DB1A49"
-               BuildableName = "MaterialKitTests.xctest"
-               BlueprintName = "MaterialKitTests"
-               ReferencedContainer = "container:MaterialKit.xcodeproj">
+               BuildableName = "MaterialKitAppTests.xctest"
+               BlueprintName = "MaterialKitAppTests"
+               ReferencedContainer = "container:MaterialKitApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9A60D8831B83F1DB00DB1A49"
-               BuildableName = "MaterialKitTests.xctest"
-               BlueprintName = "MaterialKitTests"
-               ReferencedContainer = "container:MaterialKit.xcodeproj">
+               BuildableName = "MaterialKitAppTests.xctest"
+               BlueprintName = "MaterialKitAppTests"
+               ReferencedContainer = "container:MaterialKitApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9A60D86E1B83F1DB00DB1A49"
-            BuildableName = "MaterialKit.app"
-            BlueprintName = "MaterialKit"
-            ReferencedContainer = "container:MaterialKit.xcodeproj">
+            BuildableName = "MaterialKitApp.app"
+            BlueprintName = "MaterialKitApp"
+            ReferencedContainer = "container:MaterialKitApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9A60D86E1B83F1DB00DB1A49"
-            BuildableName = "MaterialKit.app"
-            BlueprintName = "MaterialKit"
-            ReferencedContainer = "container:MaterialKit.xcodeproj">
+            BuildableName = "MaterialKitApp.app"
+            BlueprintName = "MaterialKitApp"
+            ReferencedContainer = "container:MaterialKitApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9A60D86E1B83F1DB00DB1A49"
-            BuildableName = "MaterialKit.app"
-            BlueprintName = "MaterialKit"
-            ReferencedContainer = "container:MaterialKit.xcodeproj">
+            BuildableName = "MaterialKitApp.app"
+            BlueprintName = "MaterialKitApp"
+            ReferencedContainer = "container:MaterialKitApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
