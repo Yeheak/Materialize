@@ -29,11 +29,11 @@ class ViewController: UIViewController {
 
         setupCards()
         
-        /* Buttons
-        setupRaisedButtons()
-        setupFloatingButton()
-        constrainButtons()
-        */
+    // Buttons
+//        setupRaisedButtons()
+//        setupFloatingButton()
+//        constrainButtons()
+
     }
     
     func setupCards() {
@@ -44,6 +44,8 @@ class ViewController: UIViewController {
     
     func setupBasicCard() {
         self.view.addSubview(basicCard)
+        basicCard.cancelButton.layer.shadowColor = UIColor.clearColor().CGColor
+        basicCard.otherButton.layer.shadowColor = UIColor.clearColor().CGColor
         views.setObject(basicCard, forKey: "basicCard")
     }
     
@@ -53,7 +55,7 @@ class ViewController: UIViewController {
         basicCardTwo.cancelButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
         basicCardTwo.cancelButton.layer.shadowColor = UIColor.clearColor().CGColor
         basicCardTwo.otherButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
-        basicCard.otherButton.layer.shadowColor = UIColor.clearColor().CGColor
+        basicCardTwo.otherButton.layer.shadowColor = UIColor.clearColor().CGColor
         basicCardTwo.cancelButton.pulseColor = UIColor.darkGrayColor()
         basicCardTwo.otherButton.pulseColor = UIColor.darkGrayColor()
         basicCardTwo.pulseColor = UIColor.lightGrayColor()
