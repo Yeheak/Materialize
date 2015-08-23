@@ -84,6 +84,7 @@ class ViewController: UIViewController {
     
     func setupRaisedButtonWithTitle() {
         raisedButtonWithTitle.setTitle("Button", forState: .Normal)
+        raisedButtonWithTitle.addTarget(self, action: "raisedButtonWithTitle", forControlEvents: UIControlEvents.TouchUpInside)
         raisedButtonWithTitle.color = UIColor.purpleColor()
         scrollView.addSubview(raisedButtonWithTitle)
         views.setObject(raisedButtonWithTitle, forKey: "buttonTitle")
@@ -92,6 +93,7 @@ class ViewController: UIViewController {
     func setupRaisedButtonFlatWithTitle() {
         flatButtonWithTitle.setTitle("Button", forState: .Normal)
         flatButtonWithTitle.setTitleColor(UIColor.purpleColor(), forState: .Normal)
+        flatButtonWithTitle.addTarget(self, action: "raisedButtonWithTitle", forControlEvents: UIControlEvents.TouchUpInside)
         flatButtonWithTitle.pulseColor = UIColor.purpleColor()
         scrollView.addSubview(flatButtonWithTitle)
         views.setObject(flatButtonWithTitle, forKey: "buttonFlatTitle")
@@ -108,6 +110,7 @@ class ViewController: UIViewController {
         raisedButtonWithTitleImage.color = UIColor.purpleColor()
         raisedButtonWithTitleImage.setImage(UIImage(named: "clouds"), forState: .Normal)
         raisedButtonWithTitleImage.setTitle("Button", forState: .Normal)
+        raisedButtonWithTitleImage.addTarget(self, action: "raisedButtonWithTitle", forControlEvents: UIControlEvents.TouchUpInside)
         raisedButtonWithTitleImage.titleEdgeInsets = UIEdgeInsetsMake(0, 10.0, 0, 0)
         raisedButtonWithTitleImage.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0)
         scrollView.addSubview(raisedButtonWithTitleImage)
@@ -116,7 +119,9 @@ class ViewController: UIViewController {
     
     func setupFabButton() {
         self.view.addSubview(fabButton)
-        Layout.bottomRight(self.view, child: fabButton, width: 60, height: 60, bottom: 20, right: 20)
+        Layout.width(self.view, child: fabButton, width: 60)
+        Layout.height(self.view, child: fabButton, height: 60)
+        Layout.alignFromBottomRight(self.view, child: fabButton, bottom: 20, right: 20)
     }
     
     func constrainSubViews() {
