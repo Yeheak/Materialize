@@ -12,6 +12,11 @@ class ViewController: UIViewController {
     
     var views: NSMutableDictionary = NSMutableDictionary()
     
+    // Cards
+    var basicCard: BasicCard = BasicCard()
+    var basicCardTwo: BasicCard = BasicCard()
+    
+    // Buttons
     var floatingButton: FloatingButton = FloatingButton()
     var raisedButtonWithTitle: RaisedButton = RaisedButton()
     var flatButtonWithTitle: FlatButton = FlatButton()
@@ -20,9 +25,39 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupCards()
+        
+        /* Buttons
         setupRaisedButtons()
         setupFloatingButton()
-        constrainSubviews()
+        constrainButtons()
+        */
+    }
+    
+    func setupCards() {
+        setupBasicCard()
+        setupBasicCardTwo()
+        constrainCards()
+    }
+    
+    func setupBasicCard() {
+        self.view.addSubview(basicCard)
+        views.setObject(basicCard, forKey: "basicCard")
+    }
+    
+    func setupBasicCardTwo() {
+        self.view.addSubview(basicCardTwo)
+        basicCardTwo.backgroundColor = UIColor.whiteColor()
+        basicCardTwo.cancelButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+        basicCardTwo.otherButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+        basicCardTwo.cancelButton.pulseColor = UIColor.darkGrayColor()
+        basicCardTwo.otherButton.pulseColor = UIColor.darkGrayColor()
+        basicCardTwo.pulseColor = UIColor.lightGrayColor()
+        basicCardTwo.titleLabel.textColor = UIColor.darkGrayColor()
+        basicCardTwo.detailTextLabel.textColor = UIColor.darkGrayColor()
+        basicCardTwo.horizontalSeparator.backgroundColor = UIColor.darkGrayColor()
+        views.setObject(basicCardTwo, forKey: "basicCardTwo")
     }
     
     func setupRaisedButtons() {
@@ -68,13 +103,22 @@ class ViewController: UIViewController {
         self.bottomRight(floatingButton, w: 60, h: 60, b: 20, br: 20)
     }
     
-    func constrainSubviews() {
+    func constrainButtons() {
         let metrics = ["buttonWidth" : self.view.bounds.size.width - 40, "buttonHeight" : 50]
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonTitle(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonFlatTitle(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonImage(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonTitleImage(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(60)-[buttonTitle(buttonHeight)]-(20)-[buttonImage(buttonHeight)]-(20)-[buttonTitleImage(buttonHeight)]-(20)-[buttonFlatTitle(buttonHeight)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+    }
+    
+    func constrainCards() {
+        let metrics = ["cardWidth" : self.view.bounds.size.width - 40, "cardHeight" : 230]
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[basicCard(cardWidth)]-(20)-|", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[basicCardTwo(cardWidth)]-(20)-|", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(60)-[basicCard(cardHeight)]-(60)-[basicCardTwo(cardHeight)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+
     }
 }
 

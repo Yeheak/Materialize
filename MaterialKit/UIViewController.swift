@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIViewController {
-    
     func topRight(customView: UIView, w: CGFloat, h: CGFloat, t: CGFloat, tr: CGFloat) {
         self.view.addSubview(customView)
         var metrics = ["w" : w, "h" : h, "t" : t, "tr" : tr]
