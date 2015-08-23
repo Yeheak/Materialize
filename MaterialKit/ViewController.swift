@@ -16,41 +16,45 @@ class ViewController: UIViewController {
     // Cards
     var basicCard: BasicCard = BasicCard()
     var basicCardTwo: BasicCard = BasicCard()
+    var imageCard: ImageCard = ImageCard()
     
     // Buttons
-    var floatingButton: FabButton = FabButton()
+    var fabButton: FabButton = FabButton()
     var raisedButtonWithTitle: RaisedButton = RaisedButton()
     var flatButtonWithTitle: FlatButton = FlatButton()
     var raisedButtonWithImage: RaisedButton = RaisedButton()
     var raisedButtonWithTitleImage: RaisedButton = RaisedButton()
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupCards()
-        
-    // Buttons
-//        setupRaisedButtons()
-//        setupFloatingButton()
-//        constrainButtons()
-
+        setupRaisedButtons()
+        setupFabButton()
+        constrainSubViews()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollView.contentSize = CGSizeMake(view.bounds.size.width, 2000)
     }
     
     func setupCards() {
         setupBasicCard()
         setupBasicCardTwo()
-        constrainCards()
+        setupImageCard()
     }
     
     func setupBasicCard() {
-        self.view.addSubview(basicCard)
+        scrollView.addSubview(basicCard)
         basicCard.cancelButton.layer.shadowColor = UIColor.clearColor().CGColor
         basicCard.otherButton.layer.shadowColor = UIColor.clearColor().CGColor
         views.setObject(basicCard, forKey: "basicCard")
     }
     
     func setupBasicCardTwo() {
-        self.view.addSubview(basicCardTwo)
+        scrollView.addSubview(basicCardTwo)
         basicCardTwo.backgroundColor = UIColor.whiteColor()
         basicCardTwo.cancelButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
         basicCardTwo.cancelButton.layer.shadowColor = UIColor.clearColor().CGColor
@@ -65,6 +69,12 @@ class ViewController: UIViewController {
         views.setObject(basicCardTwo, forKey: "basicCardTwo")
     }
     
+    func setupImageCard() {
+        imageCard.imageView.image = UIImage(named: "beach")
+        scrollView.addSubview(imageCard)
+        views.setObject(imageCard, forKey: "imageCard")
+    }
+    
     func setupRaisedButtons() {
         setupRaisedButtonWithTitle()
         setupRaisedButtonFlatWithTitle()
@@ -75,7 +85,7 @@ class ViewController: UIViewController {
     func setupRaisedButtonWithTitle() {
         raisedButtonWithTitle.setTitle("Button", forState: .Normal)
         raisedButtonWithTitle.color = UIColor.purpleColor()
-        self.view.addSubview(raisedButtonWithTitle)
+        scrollView.addSubview(raisedButtonWithTitle)
         views.setObject(raisedButtonWithTitle, forKey: "buttonTitle")
     }
     
@@ -83,14 +93,14 @@ class ViewController: UIViewController {
         flatButtonWithTitle.setTitle("Button", forState: .Normal)
         flatButtonWithTitle.setTitleColor(UIColor.purpleColor(), forState: .Normal)
         flatButtonWithTitle.pulseColor = UIColor.purpleColor()
-        self.view.addSubview(flatButtonWithTitle)
+        scrollView.addSubview(flatButtonWithTitle)
         views.setObject(flatButtonWithTitle, forKey: "buttonFlatTitle")
     }
     
     func setupRaisedButtonWithImage() {
         raisedButtonWithImage.color = UIColor.purpleColor()
         raisedButtonWithImage.setImage(UIImage(named: "clouds"), forState: .Normal)
-        self.view.addSubview(raisedButtonWithImage)
+        scrollView.addSubview(raisedButtonWithImage)
         views.setObject(raisedButtonWithImage, forKey: "buttonImage")
     }
     
@@ -100,30 +110,26 @@ class ViewController: UIViewController {
         raisedButtonWithTitleImage.setTitle("Button", forState: .Normal)
         raisedButtonWithTitleImage.titleEdgeInsets = UIEdgeInsetsMake(0, 10.0, 0, 0)
         raisedButtonWithTitleImage.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0)
-        self.view.addSubview(raisedButtonWithTitleImage)
+        scrollView.addSubview(raisedButtonWithTitleImage)
         views.setObject(raisedButtonWithTitleImage, forKey: "buttonTitleImage")
     }
     
-    func setupFloatingButton() {
-        // add constraints
+    func setupFabButton() {
+        self.view.addSubview(fabButton)
+        Layout.bottomRight(self.view, child: fabButton, width: 60, height: 60, bottom: 20, right: 20)
     }
     
-    func constrainButtons() {
-        let metrics = ["buttonWidth" : self.view.bounds.size.width - 40, "buttonHeight" : 50]
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonTitle(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonFlatTitle(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonImage(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonTitleImage(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(60)-[buttonTitle(buttonHeight)]-(20)-[buttonImage(buttonHeight)]-(20)-[buttonTitleImage(buttonHeight)]-(20)-[buttonFlatTitle(buttonHeight)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
-    }
-    
-    func constrainCards() {
-        let metrics = ["cardWidth" : self.view.bounds.size.width - 40, "cardHeight" : 230]
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[basicCard(cardWidth)]-(20)-|", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[basicCardTwo(cardWidth)]-(20)-|", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+    func constrainSubViews() {
+        let metrics = ["cardWidth" : self.view.bounds.size.width - 40, "cardHeight" : 230, "buttonWidth" : self.view.bounds.size.width - 40, "buttonHeight" : 50]
+        scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[basicCard(cardWidth)]-(20)-|", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+        scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[basicCardTwo(cardWidth)]-(20)-|", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+        scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[imageCard(cardWidth)]-(20)-|", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+        scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonTitle(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+        scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonFlatTitle(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+        scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonImage(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
+        scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(20)-[buttonTitleImage(buttonWidth)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
         
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(60)-[basicCard(cardHeight)]-(60)-[basicCardTwo(cardHeight)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
-
+        scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(60)-[basicCard(cardHeight)]-(60)-[basicCardTwo(cardHeight)]-(60)-[imageCard(cardHeight)]-(60)-[buttonTitle(buttonHeight)]-(20)-[buttonImage(buttonHeight)]-(20)-[buttonTitleImage(buttonHeight)]-(20)-[buttonFlatTitle(buttonHeight)]", options: nil, metrics: metrics, views: views as [NSObject : AnyObject]))
     }
 }
 
