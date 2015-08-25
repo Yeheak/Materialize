@@ -9,7 +9,7 @@
 import UIKit
 import MaterialKit
 
-class ViewController: UIViewController {
+class CardsViewController: MaterialViewController {
     
     var views: NSMutableDictionary = NSMutableDictionary()
     
@@ -25,10 +25,12 @@ class ViewController: UIViewController {
     var raisedButtonWithImage: RaisedButton = RaisedButton()
     var raisedButtonWithTitleImage: RaisedButton = RaisedButton()
     
-    @IBOutlet weak var scrollView: UIScrollView!
+    var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.redColor()
+        setupScrollView()
         setupCards()
         setupRaisedButtons()
         setupFabButton()
@@ -38,6 +40,14 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         scrollView.contentSize = CGSizeMake(view.bounds.size.width, 2000)
+    }
+    
+    func setupScrollView() {
+        scrollView = UIScrollView(frame: CGRectZero)
+        scrollView.backgroundColor = UIColor.whiteColor()
+        scrollView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.addSubview(scrollView)
+        fullScreen(scrollView)
     }
     
     func setupCards() {
